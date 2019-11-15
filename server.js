@@ -6,14 +6,12 @@ var fs = require('fs');
 var path = require('path');
 //导入querystring模块（解析post请求数据）
 var querystring = require('querystring');
-var cors = require('cors')
 
 //2.创建服务器
 var app = http.createServer();
 
 
 //3.添加响应事件
-//app.use(cors())
 app.on('request', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
