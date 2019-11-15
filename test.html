@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+</head>
+<body>	
+	<script type="text/javascript">
+		function array(data){
+			var arr = []
+			for(var index in data){
+				var str = index+'='+data[index]
+				arr.push(str)
+			}
+
+			newData = arr.join("&")
+			return newData
+		}
+
+		
+		var mess = {
+			name:'anny',
+			age:25
+		}
+
+		var xhr = new XMLHttpRequest()
+		xhr.open('post','http:localhost:2000/heroAdd',true)
+		xhr.onreadystatechange = function(){
+    		if(xhr.readyState === 4) {
+        		if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+            	//成功了
+            		console.log(xhr.responseText)
+        	} else {
+            	console.log('服务器异常')
+        	}
+    		}
+		}
+
+		xhr.send(array(mess))
+
+
+	</script>
+</body>
+</html>
