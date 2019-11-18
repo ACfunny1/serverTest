@@ -12,6 +12,10 @@ var app = http.createServer();
 
 
 //3.添加响应事件
+var a = {
+	name:'dandy',
+	age:23
+}
 app.on('request', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
@@ -37,7 +41,7 @@ app.on('request', function (req, res) {
             console.log(dataObject);
         });
 
-	 	res.end('ok')
+	 	res.end(JSON.stringify(a))
 	 }
 })
 
