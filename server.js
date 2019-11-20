@@ -22,6 +22,8 @@ app.on('request', function (req, res) {
     res.setHeader("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
     res.setHeader("X-Powered-By",' 3.2.1')
     res.setHeader("Content-Type", "application/json;charset=utf-8");
+    res.writeHead(200,'ok');
+    res.write('Hello Node!!');
 
 	console.log(req.method);
 	 if (req.url === '/heroAdd' && req.method === 'POST'){
